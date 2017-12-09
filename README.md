@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Gafurov0ivan/MobileAutorisationApi.svg?branch=master)](https://travis-ci.org/Gafurov0ivan/MobileAutorisationApi) 
+
 ## Мобильное API для регистрации и авторизации пользователя
 
 ## Запуск приложения
