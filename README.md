@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Gafurov0ivan/MobileAutorisationApi.svg?branch=master)](https://travis-ci.org/Gafurov0ivan/MobileAutorisationApi) 
+[![Build Status](https://travis-ci.org/Gafurov0ivan/MobileAutorisationApi.svg?branch=master)](https://travis-ci.org/Gafurov0ivan/MobileAutorisationApi) [![Coverage Status](https://coveralls.io/repos/github/Gafurov0ivan/MobileAutorisationApi/badge.svg?branch=master)](https://coveralls.io/github/Gafurov0ivan/MobileAutorisationApi?branch=master)
 
 ## Мобильное API для регистрации и авторизации пользователя
 
