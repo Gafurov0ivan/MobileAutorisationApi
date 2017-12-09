@@ -1,7 +1,16 @@
 language: java
-
-dist:
-- trusty
-
+sudo: false
+install: true
+addons:
+  sonarcloud:
+    organization: gafurov0ivan-github
+    token:
+      secure: fe8f94dd3e33ba0d4aa9145a3160d5407aade5ac
+jdk:
+  - oraclejdk8
 script:
-- mvn package -Dskip.unit.tests=true
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
