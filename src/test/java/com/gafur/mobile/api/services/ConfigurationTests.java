@@ -39,7 +39,7 @@ public class ConfigurationTests extends AppSpringBootTestNG {
     public void testSmsTestsCfg() throws Exception {
         log.debug("smsCfg: {}", smsCfg);
         assertThat(smsCfg.getVerificationText()).isNotEmpty();
-        assertThat(smsCfg.getVerificationText()).contains("#AUTH_CODE#");
+        assertThat(smsCfg.getVerificationText()).contains("#authCode#");
         assertThat(smsCfg.getApplicationName()).isNotEmpty();
     }
 
