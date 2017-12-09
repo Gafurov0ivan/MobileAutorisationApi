@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import java.io.Serializable;
 
 /**
  * Профиль пользователя для таблицы неподтвержденной регистрации
@@ -22,7 +23,7 @@ import javax.persistence.UniqueConstraint;
         uniqueConstraints = @UniqueConstraint(columnNames = {"phone"}, name = "unique_user_phone_number"))
 @RequiredArgsConstructor
 @NoArgsConstructor
-public class UserProfileEmbeddable {
+public class UserProfileEmbeddable implements Serializable {
 
     @NonNull
     @Column(name = "last_name", length = 50, nullable = false)

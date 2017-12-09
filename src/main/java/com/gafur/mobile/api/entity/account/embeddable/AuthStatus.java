@@ -6,8 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;
-
-import static java.util.Objects.nonNull;
+import java.util.Optional;
 
 /**
  * Статус доставки смс
@@ -18,17 +17,18 @@ import static java.util.Objects.nonNull;
 @Getter
 @RequiredArgsConstructor
 public enum AuthStatus {
-    Wait(0), Confirmed(1), SmsNotDelivered(2);
+    WAIT(0), CONFIRMED(1), SMS_NOT_DELIVERED(2);
 
     @NonNull
     private int id;
 
-    public static AuthStatus valueOf(Integer ID) {
-        if (nonNull(ID)) {
+    public static AuthStatus valueOf(Integer inputId) {
+        Optional<Integer> id = Optional.of(inputId);
+        if (id.isPresent()) {
             try {
-                return Arrays.stream(values()).filter(x -> x.id == ID).findFirst().get();
+                return Arrays.stream(values()).filter(x -> x.id == id.get()).findFirst().get();
             } catch (NoSuchElementException e) {
-                return Wait;
+                return WAIT;
             }
         }
         return null;

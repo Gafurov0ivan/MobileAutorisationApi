@@ -25,20 +25,20 @@ public class SmsTemplateDto {
 
     @ApiModelProperty(value = "Application Name", example = "android app")
     private String applicationName;
-    @ApiModelProperty(value = "Verification Text", required = true, example = "Your #appName# verification code is #authCode#")
+    @ApiModelProperty(value = "Verification Text", required = true, example = "Your #APP_NAME# verification code is #AUTH_CODE#")
     @NonNull
     private String verificationText;
 
     public String customVerificationText(String inAuthCode) {
-        return customText(verificationText).replaceAll(TemplateNode.authCode.ft(), inAuthCode);
+        return customText(verificationText).replaceAll(TemplateNode.AUTH_CODE.ft(), inAuthCode);
     }
 
     private String customText(String txt) {
-        return nonNull(applicationName) ? txt.replaceAll(TemplateNode.appName.ft(), applicationName) : txt;
+        return nonNull(applicationName) ? txt.replaceAll(TemplateNode.APP_NAME.ft(), applicationName) : txt;
     }
 
     public enum TemplateNode {
-        authCode, appName;
+        AUTH_CODE, APP_NAME;
 
         public String ft() {
             return String.format("#%1$s#", name());

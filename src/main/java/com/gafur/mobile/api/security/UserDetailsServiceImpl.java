@@ -29,7 +29,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String phone) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String phone) {
         AccountEntity account = accountRepository.findByPhone(phone);
         if (account == null) throw new NotValidFormException("You haven't got registered or confirmed yet");
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();

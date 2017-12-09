@@ -19,7 +19,7 @@ import static java.util.Objects.isNull;
 public class UserAccountValidatorImpl implements UserAccountValidator {
 
     @Override
-    public void isValidRegistrationForm(AccountRegistrationDto account) throws NotValidFormException {
+    public void isValidRegistrationForm(AccountRegistrationDto account) {
         if (account.getPhone() == null) {
             throw new NotValidFormException("Phone number is required");
         }
@@ -45,7 +45,7 @@ public class UserAccountValidatorImpl implements UserAccountValidator {
         if (isNull(existed)) {
             throw new NotValidFormException("Not valid phone number " + external.getPhone() + " for confirmation");
         }
-        if (existed.getAuthStatus().equals(AuthStatus.Confirmed)) {
+        if (existed.getAuthStatus().equals(AuthStatus.CONFIRMED)) {
             throw new ConflictException("The number" + external.getPhone() + " is already confirm registration");
         }
         //stub, code always valid

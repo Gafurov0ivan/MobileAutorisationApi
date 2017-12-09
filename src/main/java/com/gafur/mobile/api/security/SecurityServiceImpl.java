@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
+import java.util.logging.Level;
+
 /**
  * @author Ivan
  * @since 07.12.2017
@@ -33,8 +35,8 @@ public class SecurityServiceImpl implements SecurityService {
         authenticationManager.authenticate(usernamePasswordAuthenticationToken);
 
         if (usernamePasswordAuthenticationToken.isAuthenticated()) {
+            logger.debug("Auto login %s successfully!" + username);
             SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-            logger.debug(String.format("Auto login %s successfully!", username));
         }
     }
 }

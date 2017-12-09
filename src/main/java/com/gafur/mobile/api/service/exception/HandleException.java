@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
  */
 public class HandleException extends RuntimeException {
 
-    private HttpStatus httpStatus;
+    private final HttpStatus httpStatus;
 
     public HandleException(String message, HttpStatus status) {
         super(message);

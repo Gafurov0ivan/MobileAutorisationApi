@@ -17,32 +17,30 @@ import static java.util.Objects.nonNull;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Slf4j
-@ApiModel(value="ExceptionDto", description="Exception Response `success = false`")
+@ApiModel(value = "ExceptionDto", description = "Exception Response `success = false`")
 public class MessageDto {
 
-	com.twilio.rest.api.v2010.account.Message twilio;
-	String messageID;
-	String messageStatus;
-	String messageStatusDescription;
+    Message twilio;
+    String messageID;
+    String messageStatus;
+    String messageStatusDescription;
 
-	private MessageDto(com.twilio.rest.api.v2010.account.Message fromTwilio) {
-		this.twilio = fromTwilio;
-		messageID = twilio.getSid();
-		messageStatus = twilio.getStatus().name();
-		messageStatusDescription = twilio.getStatus().toString();
-	}
+    private MessageDto(Message fromTwilio) {
+        this.twilio = fromTwilio;
+        messageID = twilio.getSid();
+        messageStatus = twilio.getStatus().name();
+        messageStatusDescription = twilio.getStatus().toString();
+    }
 
-	public static MessageDto of (com.twilio.rest.api.v2010.account.Message twilio) {return new MessageDto(twilio);}
+    public static MessageDto of(Message twilio) {
+        return new MessageDto(twilio);
+    }
 
-	public String getMessageID () {
-		return messageID;
-	}
+    public String getMessageID() {
+        return messageID;
+    }
 
-	public boolean isMessageQueued (){
-		if(nonNull(twilio) && twilio.getStatus().equals(Message.Status.QUEUED))
-			return true;
-		else
-			return false;
-
-	}
+    public boolean isMessageQueued() {
+        return nonNull(twilio) && twilio.getStatus().equals(Message.Status.QUEUED);
+    }
 }

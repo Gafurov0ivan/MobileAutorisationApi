@@ -25,18 +25,18 @@ public class UserAccountRestServiceImpl implements UserAccountRestService {
     @Autowired
     private UserAccountService userAccountService;
 
-    public ResponseEntity<?> registration(@RequestBody @Valid AccountRegistrationDto account) {
+    public ResponseEntity<AccountRegistrationDto> registration(@RequestBody @Valid AccountRegistrationDto account) {
         AccountRegistrationDto registered = userAccountService.registration(account);
         return ResponseEntity.ok().body(registered);
     }
 
-    public ResponseEntity<?> confirm(@RequestBody @Valid AccountConfirmDto account) {
+    public ResponseEntity<AuthCodeDto> confirm(@RequestBody @Valid AccountConfirmDto account) {
         AuthCodeDto authCode = userAccountService.confirm(account);
         return ResponseEntity.ok().body(authCode);
     }
 
     @Override
-    public ResponseEntity<?> login(@RequestBody @Valid AccountLoginDto account) {
+    public ResponseEntity<AuthCodeDto> login(@RequestBody @Valid AccountLoginDto account) {
         AuthCodeDto authCode = userAccountService.login(account);
         return ResponseEntity.ok().body(authCode);
     }

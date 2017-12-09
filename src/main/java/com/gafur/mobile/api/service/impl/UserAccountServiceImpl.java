@@ -62,7 +62,7 @@ public class UserAccountServiceImpl implements UserAccountService {
 
         PhoneRegistrationLogEntity entityToSave = new PhoneRegistrationLogEntity(account,
                 Calendar.getInstance(),
-                AuthStatus.Wait);
+                AuthStatus.WAIT);
         entityToSave.setCode(sendSms(account, entityToSave));
         return map(phoneRegistrationLogRepository.save(entityToSave));
     }
@@ -72,7 +72,7 @@ public class UserAccountServiceImpl implements UserAccountService {
         PhoneRegistrationLogEntity existed = findByPhone(external.getPhone());
         userValidator.isValidConfirmForm(external, existed);
         accountService.save(existed);
-        existed.setAuthStatus(AuthStatus.Confirmed);
+        existed.setAuthStatus(AuthStatus.CONFIRMED);
         existed.setConfirmDate(Calendar.getInstance().getTime());
         phoneRegistrationLogRepository.save(existed);
         return authCodeService.generate(existed.getPhone());
@@ -95,7 +95,7 @@ public class UserAccountServiceImpl implements UserAccountService {
         MessageDto m = smsProvider.get().sendMessage(account.getPhone(), message);
         entityToSave.setSmsId(m.getMessageID());
         if (!m.isMessageQueued()) {
-            entityToSave.setAuthStatus(AuthStatus.SmsNotDelivered);
+            entityToSave.setAuthStatus(AuthStatus.SMS_NOT_DELIVERED);
             throw new SmsNotDeliveredException(account.getPhone());
         }
         return secureCode;

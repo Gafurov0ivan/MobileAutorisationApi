@@ -3,6 +3,7 @@ package com.gafur.mobile.api.rest;
 import com.gafur.mobile.api.rest.model.AccountConfirmDto;
 import com.gafur.mobile.api.rest.model.AccountLoginDto;
 import com.gafur.mobile.api.rest.model.AccountRegistrationDto;
+import com.gafur.mobile.api.rest.model.AuthCodeDto;
 import io.swagger.annotations.ApiParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +25,8 @@ public interface UserAccountRestService {
      * @return аккаунт пользователя
      */
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    ResponseEntity<?> registration(@ApiParam(value = "Account to registration", required = true)
-                                   AccountRegistrationDto account);
+    ResponseEntity<AccountRegistrationDto> registration(@ApiParam(value = "Account to registration", required = true)
+                                                                AccountRegistrationDto account);
 
     /**
      * Подтверждение регистрации
@@ -34,8 +35,8 @@ public interface UserAccountRestService {
      * @return код авторизации
      */
     @RequestMapping(value = "/confirm", method = RequestMethod.POST)
-    ResponseEntity<?> confirm(@ApiParam(value = "Account to confirm verification", required = true)
-                              AccountConfirmDto accountConfirm);
+    ResponseEntity<AuthCodeDto> confirm(@ApiParam(value = "Account to confirm verification", required = true)
+                                                AccountConfirmDto accountConfirm);
 
     /**
      * Подтверждение регистрации
@@ -44,6 +45,6 @@ public interface UserAccountRestService {
      * @return код авторизации
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    ResponseEntity<?> login(@ApiParam(value = "Account for login", required = true)
-                            AccountLoginDto accountLogin);
+    ResponseEntity<AuthCodeDto> login(@ApiParam(value = "Account for login", required = true)
+                                              AccountLoginDto accountLogin);
 }

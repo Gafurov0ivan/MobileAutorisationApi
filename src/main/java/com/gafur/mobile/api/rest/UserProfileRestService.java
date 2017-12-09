@@ -22,8 +22,8 @@ public interface UserProfileRestService {
      * @return профиль пользователя
      */
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    ResponseEntity<?> get(@ApiParam(value = "Phone number", example = "14053264519", required = true)
-                          String phone);
+    ResponseEntity<UserProfileDto> get(@ApiParam(value = "Phone number", example = "14053264519", required = true)
+                                               String phone);
 
     /**
      * Создает профиль пользователя
@@ -32,6 +32,6 @@ public interface UserProfileRestService {
      * @return профиль пользователя
      */
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    ResponseEntity<?> create(@ApiParam(value = "User profile", required = true)
-                             UserProfileDto userProfile);
+    ResponseEntity<UserProfileDto> create(@ApiParam(value = "User profile", required = true)
+                                                  UserProfileDto userProfile);
 }

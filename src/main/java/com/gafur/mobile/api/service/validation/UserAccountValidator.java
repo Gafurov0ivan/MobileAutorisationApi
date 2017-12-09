@@ -19,14 +19,14 @@ public interface UserAccountValidator {
      *
      * @param account аккаунт
      */
-    void isValidRegistrationForm(AccountRegistrationDto account) throws NotValidFormException;
+    void isValidRegistrationForm(AccountRegistrationDto account);
 
     /**
      * Проверяет валидность аккаунта пользователя при логине
      *
      * @param account аккаунт
      */
-    void isValidLoginForm(AccountLoginDto account) throws NotValidFormException;
+    void isValidLoginForm(AccountLoginDto account);
 
     /**
      * Проверяет валидность подтверждения регистрации
@@ -34,5 +34,5 @@ public interface UserAccountValidator {
      * @param external форма подтверждения
      * @param existed  информация по регистрации из бд
      */
-    void isValidConfirmForm(AccountConfirmDto external, PhoneRegistrationLogEntity existed) throws NotValidFormException;
+    void isValidConfirmForm(AccountConfirmDto external, PhoneRegistrationLogEntity existed);
 }

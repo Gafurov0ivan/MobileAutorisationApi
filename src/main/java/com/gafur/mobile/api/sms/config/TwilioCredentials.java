@@ -19,6 +19,7 @@ public class TwilioCredentials extends ProviderCredentials {
     private String accountSid;
     private String phoneNumber;
 
+    @Override
     public boolean isValid() {
         return super.isValid() && nonNull(getPhoneNumber()) && nonNull(getAccountSid());
     }

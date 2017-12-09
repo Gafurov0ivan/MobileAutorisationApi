@@ -43,7 +43,7 @@ public class RegistrationRestTests extends MvcTest {
 
         SmsTemplateDto smsTemplate = new SmsTemplateDto();
         smsTemplate.setApplicationName("android app");
-        smsTemplate.setVerificationText("Your #appName# verification code is #authCode#");
+        smsTemplate.setVerificationText("Your #APP_NAME# verification code is #AUTH_CODE#");
         account.setTemplate(smsTemplate);
 
         UserProfileDto userProfile = new UserProfileDto();

@@ -1,6 +1,7 @@
 package com.gafur.mobile.api.entity.account;
 
 import com.gafur.mobile.api.entity.IdEntity;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,6 +18,7 @@ import java.util.Set;
 @Entity
 @Table(name = "role")
 @NoArgsConstructor
+@EqualsAndHashCode
 public class RoleEntity extends IdEntity implements GrantedAuthority {
 
     public RoleEntity(String name) {

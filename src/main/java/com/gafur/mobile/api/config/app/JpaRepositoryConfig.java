@@ -22,7 +22,7 @@ import java.sql.SQLException;
 public class JpaRepositoryConfig extends HikariConfig {
 
     @Bean
-    public DataSource dataSource() throws SQLException {
+    public DataSource dataSource() {
         return new HikariDataSource(this);
     }
 

@@ -8,6 +8,8 @@ package com.gafur.mobile.api.util;
  */
 public class StringUtil {
 
+    private StringUtil(){}
+
     public static String clearNonDigit(String str) {
         return str.replaceAll("[^\\p{IsDigit}]", "");
     }
