@@ -18,7 +18,8 @@ import java.util.Set;
 @Entity
 @Data
 @Table(name = "account",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"phone"}, name = "unique_user_phone_number"))
+       uniqueConstraints = @UniqueConstraint(columnNames = {"phone"},
+       name = "unique_user_phone_number"))
 @RequiredArgsConstructor
 @NoArgsConstructor
 public class AccountEntity extends IdEntity {
@@ -35,7 +36,7 @@ public class AccountEntity extends IdEntity {
     private String passwordConfirm;
 
     @NonNull
-    @Column(name = "auth_code", length = 50, nullable = false)
+    @Column(name = "auth_code", length = 250, nullable = false)
     private String authCode;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

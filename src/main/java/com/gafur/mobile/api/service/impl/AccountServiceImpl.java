@@ -7,6 +7,7 @@ import com.gafur.mobile.api.entity.account.UserProfileEntity;
 import com.gafur.mobile.api.repository.AccountRepository;
 import com.gafur.mobile.api.repository.RoleRepository;
 import com.gafur.mobile.api.rest.model.AccountLoginDto;
+import com.gafur.mobile.api.security.TokenService;
 import com.gafur.mobile.api.service.AccountService;
 import com.gafur.mobile.api.service.RandomService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
-    RandomService randomService;
+    TokenService tokenService;
 
     @Override
     public AccountLoginDto save(PhoneRegistrationLogEntity source) {
@@ -55,7 +56,7 @@ public class AccountServiceImpl implements AccountService {
         target.setAvatarLink(source.getUserProfileEmbeddable().getAvatarLink());
         target.setEmail(source.getUserProfileEmbeddable().getEmailAddress());
         AccountEntity accountEntity = new AccountEntity();
-        accountEntity.setAuthCode(randomService.generateAuthCode(source.getPhone()));
+        accountEntity.setAuthCode(tokenService.generateToken(source.getPhone()));
         accountEntity.setPhone(source.getPhone());
         accountEntity.setPassword(passwordEncoder.encode(source.getPassword()));
         Set<RoleEntity> roles = new HashSet<>();

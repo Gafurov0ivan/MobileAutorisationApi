@@ -1,6 +1,7 @@
 package com.gafur.mobile.api.service.impl;
 
 import com.gafur.mobile.api.rest.model.AuthCodeDto;
+import com.gafur.mobile.api.security.TokenService;
 import com.gafur.mobile.api.service.AuthCodeService;
 import com.gafur.mobile.api.service.RandomService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,12 @@ import org.springframework.stereotype.Service;
 public class AuthCodeServiceImpl implements AuthCodeService {
 
     @Autowired
-    RandomService randomService;
+    TokenService tokenService;
 
     @Override
     public AuthCodeDto generate(String phone) {
         AuthCodeDto authCode = new AuthCodeDto();
-        authCode.setAuthCode(randomService.generateAuthCode(phone));
+        authCode.setAuthCode(tokenService.generateToken(phone));
         return authCode;
     }
 }

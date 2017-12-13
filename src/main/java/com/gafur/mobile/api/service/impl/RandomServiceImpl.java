@@ -8,9 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import static java.util.Objects.isNull;
 import static org.bitbucket.dollar.Dollar.$;
 
@@ -43,10 +40,5 @@ public class RandomServiceImpl implements RandomService {
         return String.join(config.getDelimiter(),
                 code.split("(?<=\\G.{" + config.getPartitionSize() + "})")
         );
-    }
-
-    public String generateAuthCode(String phone) {
-        List<Character> list = $(validCharacters()).shuffle().concat($(phone.toCharArray())).slice(config.getSize()).toList();
-        return list.stream().map(e -> e.toString()).collect(Collectors.joining(""));
     }
 }

@@ -23,13 +23,6 @@ public interface RandomService {
     String generateCode();
 
     /**
-     * генерирует код для авторизации
-     *
-     * @return код
-     */
-    String generateAuthCode(String phone);
-
-    /**
      * Проставляет нужные знаки
      *
      * @return код

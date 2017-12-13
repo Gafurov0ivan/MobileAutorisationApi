@@ -24,13 +24,10 @@ public enum AuthStatus {
 
     public static AuthStatus valueOf(Integer inputId) {
         Optional<Integer> id = Optional.of(inputId);
-        if (id.isPresent()) {
             try {
                 return Arrays.stream(values()).filter(x -> x.id == id.get()).findFirst().get();
             } catch (NoSuchElementException e) {
                 return WAIT;
             }
-        }
-        return null;
     }
 }
