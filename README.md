@@ -1,17 +1,16 @@
-[![Build Status](https://travis-ci.org/Gafurov0ivan/MobileAutorisationApi.svg?branch=master)](https://travis-ci.org/Gafurov0ivan/MobileAutorisationApi) [![Coverage Status](https://coveralls.io/repos/github/Gafurov0ivan/MobileAutorisationApi/badge.svg?branch=master)](https://coveralls.io/github/Gafurov0ivan/MobileAutorisationApi?branch=master)
+[![Build Status](https://travis-ci.org/Gafurov0ivan/MobileAutorisationApi.svg?branch=master)](https://travis-ci.org/Gafurov0ivan/MobileAutorisationApi)
 
-## Мобильное API для регистрации и авторизации пользователя
+## Mobile API for sms registration and autorisation
 
-## Запуск приложения
-В корне проекта команда:  mvn spring-boot:run
+## Run
+In project source command:  mvn spring-boot:run
 
-## Доступ к приложению
-Доступно по адресу http://localhost:8080/swagger-ui.html
-Swagger позволяет наглядно просматривать API и провести простое тестирование
+## Access
+After run, application is available at http://localhost:8080/swagger-ui.html
+Swagger allow to check and test API
 
-## Технологии
-Java, Spring-boot, Spring-data, Spring-security, Hibernate, встроенная база данных hsql.
+## Technologies
+Java, Spring-boot, Spring-data, Spring-security, Hibernate, embedded data base hsql.
 
-## Дополнительно
-Код авторизации для ограничения доступа к рест сервисам, приходящий при подтверждении регистрации и логине 
-на данный момент не используется, чтобы позволить протестировать данные API
+## Additional
+Auth code for secure rest services, return by confirm and login not used at the moment, to allow you easy test this API
