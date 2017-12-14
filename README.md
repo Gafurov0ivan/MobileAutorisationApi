@@ -13,4 +13,4 @@ Swagger allow to check and test API
 Java, Spring-boot, Spring-data, Spring-security, Hibernate, embedded data base hsql.
 
 ## Additional
-Auth code for secure rest services, return by confirm and login not used at the moment, to allow you easy test this API
+Auth code for secure rest services, return by confirm and login is a stub at the moment, to allow you easy test this API
